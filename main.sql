@@ -1,12 +1,12 @@
 CREATE TABLE planets (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    climat VARCHAR(255)
+    name VARCHAR(50) NOT NULL,
+    climat VARCHAR(50)
 );
 
 CREATE TABLE creatures (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     is_venomus BOOLEAN,
     bite_size INTEGER,
     planet_id INTEGER REFERENCES planets(id)
@@ -14,13 +14,13 @@ CREATE TABLE creatures (
 
 CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     planet_id INTEGER REFERENCES planets(id)
 );
 
 CREATE TABLE people (
     people_id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     is_bitten BOOLEAN DEFAULT FALSE,
     city_id INTEGER REFERENCES cities(id)
 );
@@ -30,7 +30,7 @@ CREATE TABLE incidents (
     creature_id INTEGER REFERENCES creatures(id),
     bitten_id INTEGER REFERENCES people(people_id),
     bite_size INTEGER,
-    location VARCHAR(255)
+    location VARCHAR(50)
 );
 
 CREATE TABLE bioservice_db (
