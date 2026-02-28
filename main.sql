@@ -56,3 +56,21 @@ CREATE TABLE library_records (
     is_hospitalized BOOLEAN,
     library_id INTEGER REFERENCES library(id)
 );
+
+INSERT INTO planets (name, climat) VALUES ('Earth', 'Tropical');
+
+INSERT INTO cities (name, planet_id) VALUES ('Carara', 1);
+
+INSERT INTO creatures (name, is_venomus, bite_size, planet_id) VALUES
+('Lizard', TRUE, 5, 1),
+('Vasilisk', TRUE, 2, 1);
+
+INSERT INTO people (name, is_bitten, city_id) VALUES ('Bowman', TRUE, 1);
+
+INSERT INTO incidents (creature_id, bitten_id, bite_size, location) VALUES (1, 1, 10, 'Carara');
+
+INSERT INTO bioservice_db (city_id) VALUES (1);
+INSERT INTO library (city_id) VALUES (1);
+
+INSERT INTO bioservice_record (incident_id, is_hospitalized, bioservice_id) VALUES (1, FALSE, 1);
+INSERT INTO library_records (incident_id, is_hospitalized, library_id) VALUES (1, FALSE, 1);
